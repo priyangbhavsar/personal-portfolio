@@ -9,8 +9,18 @@
   color: #160303f2;
   bottom: 0;
   border-radius: 10px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+
+  @media (min-width: 426px) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  @media (max-width: 425px) {
+
+    width: 94%;
+
+    padding: 0px 3%;
+  }
 
   .navigation-btn {
     align-items: center;
@@ -29,10 +39,22 @@
     }
 
   }
+
   :last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 5px;
   }
+
   :first-child {
-    border-top-left-radius: 10px;
+    border-top-left-radius: 5px;
+  }
+
+  @media(min-width: 426px) {
+    :last-child {
+      border-top-right-radius: 10px;
+    }
+
+    :first-child {
+      border-top-left-radius: 10px;
+    }
   }
 }
