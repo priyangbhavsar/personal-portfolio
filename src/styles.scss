@@ -1,42 +1,64 @@
-body{
-    font-family: cursive;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(-45deg, #26312a, #692841, #5c3f3f, #265361);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    cursor:url('assets/icons/cursor-4.png') 25 25, auto;
-    overflow-x: hidden;
-}
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-/* unvisited link */
-a:link {
-    color: rgb(118, 184, 245);
-  }
-  
-  /* visited link */
-  a:visited {
-    color: green;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color: hotpink;
-  }
-  
-  /* selected link */
-  a:active {
-    color: rgb(180, 180, 245);
-  }
+// body{
+//     font-family: cursive;
+//     height: 100vh;
+//     width: 100vw;
+//     background: linear-gradient(-45deg, #26312a, #692841, #5c3f3f, #265361);
+//     background-size: 400% 400%;
+//     animation: gradient 15s ease infinite;
+//     cursor:url('assets/icons/cursor-4.png') 25 25, auto;
+//     overflow-x: hidden;
+// }
+
+// @keyframes gradient {
+//     0% {
+//         background-position: 0% 50%;
+//     }
+//     50% {
+//         background-position: 100% 50%;
+//     }
+//     100% {
+//         background-position: 0% 50%;
+//     }
+// }
+
+// /* unvisited link */
+// a:link {
+//     color: rgb(118, 184, 245);
+//   }
+
+//   /* visited link */
+//   a:visited {
+//     color: green;
+//   }
+
+//   /* mouse over link */
+//   a:hover {
+//     color: hotpink;
+//   }
+
+//   /* selected link */
+//   a:active {
+//     color: rgb(180, 180, 245);
+//   }
+* {
+  padding: 0; margin: 0;
+  // transition: ease-in-out 0.4;
+  // animation: forwards;
+  transition: width 2s;
+}
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+    background-color: #03011f;
+    color: #6cacc5;
+
+    // overflow-x: hidden;
+
+}
+#fullheight {
+    width: 250px;
+    background: blue;
+}

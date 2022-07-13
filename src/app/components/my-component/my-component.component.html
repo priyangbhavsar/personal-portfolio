@@ -1,0 +1,49 @@
+<!-- <!-- <mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span></span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container">
+  <div class="row1">
+    <div class="col1 content-left">
+      <div class="greetings">
+        Hello, It is me
+        <div class="title">
+          <h1>Priyang</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col1 content-right img"></div>
+  </div>
+</div> -->
+
+<!-- <div class="title-container">
+  <div class="title">
+    <h1 class="info"> Hello I am Priyang</h1>
+    <h4>Software Engineer</h4>
+
+  </div>
+</div> -->
+<div class = 'container'>
+  <div class="title">
+    <h1>{{heading}}</h1>
+  </div>
+  <div class='content'>
+    <ng-scrollbar>
+      <div class="wrapper">
+        <app-personal-info *ngIf="currStep === 1" [@enterAnimation]></app-personal-info>
+        <app-my-journey *ngIf="currStep === 2" [@enterAnimation]></app-my-journey>
+      </div>
+    </ng-scrollbar>
+  </div>
+</div>
+
