@@ -1,0 +1,24 @@
+
+.title-container {
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  // text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  .title {
+    // background-color: #063a52;
+    margin: 40px;
+    width: 50%;
+    min-width: 300px;
+    vertical-align: middle;
+    display: table-cell;
+    z-index:1;
+    margin: 20px;
+    // line-height: 15px;
+    .info {
+
+    }
+  }
+}
