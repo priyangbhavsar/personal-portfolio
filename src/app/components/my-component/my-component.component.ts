@@ -13,11 +13,11 @@ import { Subscription } from 'rxjs';
       'enterAnimation', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('400ms', style({ opacity: 1 }))
+        animate('1400ms', style({ opacity: 1 }))
       ]),
       transition(':leave', [
         style({ opacity: 1 , display: 'none' }),
-        animate('800ms', style({ opacity: 0, display: 'none' }))
+        animate('1800ms', style({ opacity: 0, display: 'none' }))
       ])
     ]
     )
