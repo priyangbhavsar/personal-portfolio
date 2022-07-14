@@ -39,28 +39,29 @@ export class TerminalComponent implements OnInit {
   }
 
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent): void {
-    console.log(event)
-    event.stopPropagation()
-    // if (event.keyCode === 8) {
-    //   this.currentCommand.cmd = this.currentCommand.cmd.substring(0, this.currentCommand.cmd.length - 1)
-    // }
+  // @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(): void {
+    // console.log(event)
+    // event.stopPropagation()
+    // // if (event.keyCode === 8) {
+    // //   this.currentCommand.cmd = this.currentCommand.cmd.substring(0, this.currentCommand.cmd.length - 1)
+    // // }
 
-    if (event.keyCode === 13) {
-      this.currentCommand.response = this.renderCommand();
+    // if (event.keyCode === 13) {
+    //   this.currentCommand.response = this.renderCommand();
+    //   const newCmd: basicCommand = new basicCommand();
+    //   this.currentCommand = newCmd
+    //   this.commands.push(newCmd);
+    //   this.inp.value = ''
+    // } else if (event.key.length === 1) {
+    // }
+    // // this.currentCommand.cmd = inp.value
+
+    this.currentCommand.response = this.renderCommand();
       const newCmd: basicCommand = new basicCommand();
       this.currentCommand = newCmd
       this.commands.push(newCmd);
       this.inp.value = ''
-    } else if (event.key.length === 1) {
-    }
-    // this.currentCommand.cmd = inp.value
-  }
-
-  changeCmd() {
-    this.currentCommand.cmd = this.inp.value + event
-
   }
 
   renderCommand(): string {
