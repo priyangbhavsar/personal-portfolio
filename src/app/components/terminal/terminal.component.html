@@ -1,5 +1,5 @@
-<div class="terminal-container" (keydown)="handleKeyboardEvent($event)" (click)="doNotFocusOnMe($event)">
-  <input #input type="text" autofocus class="input">
+<div class="terminal-container" (click)="doNotFocusOnMe($event)">
+  <input #input type="text" autofocus class="input"  [(ngModel)]="currentCommand.cmd">
   <div *ngFor="let command of commands" class="commands" >
     <span>{{ command.base }}</span>
     <span>{{ command.directory }}</span>
