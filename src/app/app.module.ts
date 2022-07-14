@@ -12,6 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MyJourneyComponent } from './components/my-journey/my-journey.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { NgScrollbar, NgScrollbarModule } from 'ngx-scrollbar';
+import { TerminalComponent } from './components/terminal/terminal.component';
+import { FormsModule, NgForm } from '@angular/forms';
+import { FrameComponent } from './components/frame/frame.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,21 @@ import { NgScrollbar, NgScrollbarModule } from 'ngx-scrollbar';
     LineComponent,
     FooterComponent,
     MyJourneyComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    TerminalComponent,
+    FrameComponent,
+    SafePipe
+  ],
+  entryComponents: [
+    FrameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialExampleModule,
     BrowserAnimationsModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
