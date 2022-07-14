@@ -26,6 +26,8 @@ export class TerminalComponent implements OnInit {
   @ViewChild('input')
   input: ElementRef
 
+  inp: HTMLInputElement
+
   ngOnInit(): void {
 
   }
@@ -33,6 +35,7 @@ export class TerminalComponent implements OnInit {
   ngAfterViewInit() {
     console.log('this.cursor', this.cursor)
     setInterval(() => this.cursor.nativeElement.classList.toggle('display-none'), 1000)
+    this.inp = this.input.nativeElement
   }
 
 
@@ -40,17 +43,24 @@ export class TerminalComponent implements OnInit {
   handleKeyboardEvent(event: KeyboardEvent): void {
     console.log(event)
     event.stopPropagation()
-    if (event.keyCode === 8) {
-      this.currentCommand.cmd = this.currentCommand.cmd.substring(0, this.currentCommand.cmd.length - 1)
-    }
+    // if (event.keyCode === 8) {
+    //   this.currentCommand.cmd = this.currentCommand.cmd.substring(0, this.currentCommand.cmd.length - 1)
+    // }
+
     if (event.keyCode === 13) {
       this.currentCommand.response = this.renderCommand();
       const newCmd: basicCommand = new basicCommand();
       this.currentCommand = newCmd
-      this.commands.push(newCmd)
+      this.commands.push(newCmd);
+      this.inp.value = ''
     } else if (event.key.length === 1) {
     }
-    this.currentCommand.cmd += event.key
+    // this.currentCommand.cmd = inp.value
+  }
+
+  changeCmd() {
+    this.currentCommand.cmd = this.inp.value + event
+
   }
 
   renderCommand(): string {
