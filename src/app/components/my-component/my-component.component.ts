@@ -29,7 +29,7 @@ export class MyComponentComponent implements OnInit, OnDestroy {
   constructor(private stepperService: StepperService) { }
   prevBx = 0
   prevBy = 0
-  currStep = STEPPER.PERSONAL_INFO
+  currStep = STEPPER.CONTACT
   private observers: Subscription[] = []
   heading = HEADINGMAP[this.currStep]
   ngOnInit(): void {

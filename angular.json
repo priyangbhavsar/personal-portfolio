@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/personal-portfolio",
+            "baseHref": "/personal-portfolio/",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",

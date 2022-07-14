@@ -42,6 +42,7 @@
       <div class="wrapper">
         <app-personal-info *ngIf="currStep === 1" [@enterAnimation]></app-personal-info>
         <app-my-journey *ngIf="currStep === 2" [@enterAnimation]></app-my-journey>
+        <app-terminal *ngIf="currStep === 3" [@enterAnimation]></app-terminal>
       </div>
     </ng-scrollbar>
   </div>
