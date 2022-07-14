@@ -7,7 +7,7 @@ export enum STEPPER {
 
 
 export const HEADINGMAP = {
-  [STEPPER.PERSONAL_INFO] : 'Personal Info',
+  [STEPPER.PERSONAL_INFO] : 'About',
   [STEPPER.MY_JOURNEY] :'My Journey' ,
   [STEPPER.CONTACT] : 'Terminal',
   [STEPPER.NOTHING] : '',

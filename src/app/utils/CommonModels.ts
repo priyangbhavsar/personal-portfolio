@@ -1,5 +1,5 @@
 export class basicCommand {
-  base: string = 'priyang@desktop:';
+  base: string = 'priyang@home:';
   directory: string;
   cmd: string = '';
   response: string = '';
