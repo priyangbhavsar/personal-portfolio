@@ -49,8 +49,8 @@ export class TerminalComponent implements OnInit {
       this.currentCommand = newCmd
       this.commands.push(newCmd)
     } else if (event.key.length === 1) {
-      this.currentCommand.cmd += event.key
     }
+    this.currentCommand.cmd += event.key
   }
 
   renderCommand(): string {
