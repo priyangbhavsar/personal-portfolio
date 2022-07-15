@@ -61,7 +61,7 @@ export class TerminalComponent implements OnInit {
       const newCmd: basicCommand = new basicCommand();
       this.currentCommand = newCmd
       this.commands.push(newCmd);
-      this.inp.value = ''
+      // this.currentCommand.
   }
 
   renderCommand(): string {

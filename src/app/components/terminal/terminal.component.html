@@ -9,5 +9,5 @@
     <br />
     <div [innerHTML]="command.response" class="response"></div>
   </div>
-  <input #input type="text" autofocus class="input"  [(ngModel)]="currentCommand.cmd" (submit)="handleKeyboardEvent()" (change)="handleKeyboardEvent()">
+  <input #input type="text" autofocus class="input"  [(ngModel)]="currentCommand.cmd"  (change)="handleKeyboardEvent()" placeholder="add command">
 </div>
