@@ -1,9 +1,11 @@
 import { FocusOptions } from '@angular/cdk/a11y';
+import { HttpEventType } from '@angular/common/http';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import _ from 'lodash';
 import { basicCommand, FileObject, MyCommand } from 'src/app/utils/CommonModels';
-import { allCommands, filesList } from 'src/app/utils/constants';
+import { allCommands, cmdErrors, filesList } from 'src/app/utils/constants';
+import { CommonService } from 'src/app/utils/services/common.service';
 import { FrameComponent } from '../frame/frame.component';
 
 @Component({
@@ -18,7 +20,6 @@ export class TerminalComponent implements OnInit {
   ]
 
   currentCommand: basicCommand = this.commands[0]
-  constructor(private dialog: MatDialog) { }
 
   @ViewChild('cmd_cursor')
   cursor: ElementRef
@@ -27,6 +28,10 @@ export class TerminalComponent implements OnInit {
   input: ElementRef
 
   inp: HTMLInputElement
+
+
+  constructor(private dialog: MatDialog, private commonService: CommonService) { }
+
 
   ngOnInit(): void {
 
@@ -58,17 +63,17 @@ export class TerminalComponent implements OnInit {
     // // this.currentCommand.cmd = inp.value
 
     this.currentCommand.response = this.renderCommand();
-      const newCmd: basicCommand = new basicCommand();
-      this.currentCommand = newCmd
-      this.commands.push(newCmd);
-      // this.currentCommand.
+    const newCmd: basicCommand = new basicCommand();
+    this.currentCommand = newCmd
+    this.commands.push(newCmd);
+    // this.currentCommand.
   }
 
   renderCommand(): string {
     const cmdToBeParsed = this.currentCommand.cmd
     const lst = cmdToBeParsed.split(' ')
     console.log(lst, allCommands)
-    const comm = allCommands.find(el => el.numberOfParams === lst.length - 1 && el.name === lst[0])
+    const comm = allCommands.find(el => el.name === lst[0])
     lst.shift()
     if (comm) {
       const ret = this.executeCommand(comm, lst)
@@ -96,27 +101,67 @@ export class TerminalComponent implements OnInit {
         this.commands = []
         break
       case 'show':
-        this.showFile(_.first(params))
+        ret = this.showFile(_.first(params))
+        break
+      case 'download':
+        ret = this.downloadFile(_.first(params))
+        break
+
     }
     return ret
   }
 
-  showFile(name?: string): void {
+  showFile(name?: string): string {
     if (name) {
+      const currFile = filesList.find(el => el.getFullName() === name)
+      if (!currFile) {
+        return cmdErrors.fileNotExists
+      }
+      if (currFile.canShow) {
+        this.dialog.open(FrameComponent, {
 
-      //console.log('value?.URL', value?.URL)
-      this.dialog.open(FrameComponent, {
-        height: '90%',
-        width: '90%',
-        data: {
-          url: filesList.find(el => el.toString() === name)?.URL
-        }
-      })
+          height: '90%',
+          width: '90%',
+          data: {
+            url: currFile.URL
+          }
+        })
+        return 'showing the file...'
+      }
+      return 'this file cannot be shown'
     }
+    return 'please enter fileName <br> Hint : you can use command \'show leetcode.pri\''
   }
-  doNotFocusOnMe(event: Event) {
-    console.log('event triggered', (this.input.nativeElement as HTMLElement).innerHTML);
-    (this.input.nativeElement as HTMLElement).focus();
 
+  downloadFile(name?: string): string {
+    if (name) {
+      const currFile = filesList.find(el => el.getFullName() === name)
+      if (!currFile) {
+        return cmdErrors.fileNotExists
+      }
+      if (currFile.downloadable) {
+        this.commonService.downloadFile(currFile.downloadURL).subscribe(result => {
+          if (result.type === HttpEventType.DownloadProgress) {
+            const percentDone = Math.round(100 * result.loaded / (result.total ?? 1));
+            console.log(percentDone);
+          }
+          if (result.type === HttpEventType.Response) {
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(result.body.blob());
+            a.download = 'fileName';
+            // start download
+            a.click();
+            a.remove();
+          }
+          return 'showing the file...';
+        })
+      }
+      return 'this file cannot be shown'
+    }
+    return 'please enter fileName <br> Hint : you can use command \'show leetcode.pri\''
+
+  }
+  doNotFocusOnMe() {
+    this.inp.focus();
   }
 }
