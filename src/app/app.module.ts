@@ -16,6 +16,7 @@ import { TerminalComponent } from './components/terminal/terminal.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { FrameComponent } from './components/frame/frame.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SafePipe } from './pipes/safe.pipe';
     MaterialExampleModule,
     BrowserAnimationsModule,
     NgScrollbarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

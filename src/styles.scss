@@ -62,3 +62,10 @@ html, body, #fullheight {
     width: 250px;
     background: blue;
 }
+
+.custom-dialog-container .mat-dialog-container {
+  /* add your styles */
+  margin: 0px;
+  padding: 0px;
+}
+
