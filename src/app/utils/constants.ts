@@ -1,11 +1,12 @@
 import { FileObject, MyCommand } from "./CommonModels";
 
 export const allCommands = [
-  new MyCommand('show', 'to show the content of a file <br> eg: show fileName', 1),
-  new MyCommand('ls', 'get list of files <br>', 0),
-  new MyCommand('download', 'to download a file if it is downloadable <br> eg: download fileName', 1),
   new MyCommand('help', 'to get the help', 0),
+  new MyCommand('ls', 'get list of files <br>', 0),
   new MyCommand('cls', 'to clear the terminal', 0),
+  new MyCommand('show', 'to show the content of a file <br> eg: show fileName', 1),
+  new MyCommand('download', 'to download a file if it is downloadable <br> eg: download fileName', 1),
+  new MyCommand('open', 'to open a file in new tab if it can be opened <br> eg: open fileName', 1),
 ]
 
 export const filesList = [

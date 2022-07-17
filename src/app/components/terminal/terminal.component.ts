@@ -1,6 +1,6 @@
 import { FocusOptions } from '@angular/cdk/a11y';
 import { HttpEventType } from '@angular/common/http';
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import _ from 'lodash';
 import { basicCommand, FileObject, MyCommand } from 'src/app/utils/CommonModels';
@@ -29,6 +29,13 @@ export class TerminalComponent implements OnInit {
 
   inp: HTMLInputElement
 
+  @Input('isFocussed')
+  set isFocussed(val: boolean) {
+    this.inp?.focus()
+  }
+
+  @Output('cmdExecuted')
+  emitter = new EventEmitter<boolean>()
 
   constructor(private dialog: MatDialog, private commonService: CommonService) { }
 
@@ -65,7 +72,9 @@ export class TerminalComponent implements OnInit {
     this.currentCommand.response = this.renderCommand();
     const newCmd: basicCommand = new basicCommand();
     this.currentCommand = newCmd
-    this.commands.push(newCmd);
+    this.commands.push(newCmd)
+    setTimeout(() => this.emitter.emit(true))
+
     // this.currentCommand.
   }
 
@@ -79,7 +88,6 @@ export class TerminalComponent implements OnInit {
       const ret = this.executeCommand(comm, lst)
       return ret
     }
-
     return `this command is not recognized use 'help' to view all commands`
   }
 
@@ -104,7 +112,10 @@ export class TerminalComponent implements OnInit {
         ret = this.showFile(_.first(params))
         break
       case 'download':
-        ret = this.downloadFile(_.first(params))
+        ret = this.openInNewTab(_.first(params), true)
+        break
+      case 'open':
+        ret = this.openInNewTab(_.first(params))
         break
 
     }
@@ -133,28 +144,35 @@ export class TerminalComponent implements OnInit {
     return 'please enter fileName <br> Hint : you can use command \'show leetcode.pri\''
   }
 
-  downloadFile(name?: string): string {
+  openInNewTab(name?: string, isDownload = false): string {
     if (name) {
       const currFile = filesList.find(el => el.getFullName() === name)
       if (!currFile) {
         return cmdErrors.fileNotExists
       }
-      if (currFile.downloadable) {
-        this.commonService.downloadFile(currFile.downloadURL).subscribe(result => {
-          if (result.type === HttpEventType.DownloadProgress) {
-            const percentDone = Math.round(100 * result.loaded / (result.total ?? 1));
-            console.log(percentDone);
-          }
-          if (result.type === HttpEventType.Response) {
-            var a = document.createElement("a");
-            a.href = URL.createObjectURL(result.body.blob());
-            a.download = 'fileName';
-            // start download
-            a.click();
-            a.remove();
-          }
-          return 'showing the file...';
-        })
+      if (isDownload && currFile.downloadable) {
+        // this.commonService.downloadFile(currFile.downloadURL).subscribe(result => {
+        //   if (result.type === HttpEventType.DownloadProgress) {
+        //     const percentDone = Math.round(100 * result.loaded / (result.total ?? 1));
+        //     console.log(percentDone);
+        //   }
+        //   if (result.type === HttpEventType.Response) {
+        //     var a = document.createElement("a");
+        //     a.href = URL.createObjectURL(result.body.blob());
+        //     a.download = 'fileName';
+        //     // start download
+        //     a.click();
+        //     a.remove();
+        //   }
+        //   return 'showing the file...';
+        // })
+
+        window.open(currFile.downloadURL, '_blank')
+        return 'downloading...'
+      }
+      if (!isDownload && currFile.URL) {
+        window.open(currFile.URL, '_blank')
+        return 'opening...'
       }
       return 'this file cannot be shown'
     }

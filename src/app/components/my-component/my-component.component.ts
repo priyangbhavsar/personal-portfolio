@@ -1,8 +1,9 @@
 import { StepperService } from './../../utils/services/stepper.service';
 import { STEPPER, HEADINGMAP } from './../../utils/enumsGlobal';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Subscription } from 'rxjs';
+import { NgScrollbar } from 'ngx-scrollbar';
 
 @Component({
   selector: 'app-my-component',
@@ -16,7 +17,7 @@ import { Subscription } from 'rxjs';
         animate('1400ms', style({ opacity: 1 }))
       ]),
       transition(':leave', [
-        style({ opacity: 1 , display: 'none' }),
+        style({ opacity: 1, display: 'none' }),
         animate('1800ms', style({ opacity: 0, display: 'none' }))
       ])
     ]
@@ -26,12 +27,19 @@ import { Subscription } from 'rxjs';
 
 
 export class MyComponentComponent implements OnInit, OnDestroy {
-  constructor(private stepperService: StepperService) { }
   prevBx = 0
   prevBy = 0
   currStep = STEPPER.CONTACT
   private observers: Subscription[] = []
   heading = HEADINGMAP[this.currStep]
+  isFocussed = false
+
+  @ViewChild(NgScrollbar)
+  scrollbarRef: NgScrollbar
+
+
+
+  constructor(private stepperService: StepperService) { }
   ngOnInit(): void {
     console.log(window.innerWidth, window.innerHeight)
     console.log(Math.random() * window.innerWidth, Math.random() * window.innerHeight)
@@ -86,4 +94,15 @@ export class MyComponentComponent implements OnInit, OnDestroy {
       observer.unsubscribe()
     })
   }
+
+  changeIt() {
+    this.isFocussed = !this.isFocussed
+  }
+
+  scrollToBottom() {
+    console.log('going to bottom')
+
+    this.scrollbarRef.scrollTo({ bottom: 0, duration: 80 })
+  }
+
 }
