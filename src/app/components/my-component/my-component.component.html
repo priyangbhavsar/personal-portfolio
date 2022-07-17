@@ -33,18 +33,18 @@
 
   </div>
 </div> -->
-<div class = 'container'>
+<div class='container'>
   <div class="title">
     <h1>{{heading}}</h1>
   </div>
   <div class='content'>
-    <ng-scrollbar>
+    <ng-scrollbar (click)="changeIt()" #scrollbar>
       <div class="wrapper">
         <app-personal-info *ngIf="currStep === 1" [@enterAnimation]></app-personal-info>
         <app-my-journey *ngIf="currStep === 2" [@enterAnimation]></app-my-journey>
-        <app-terminal *ngIf="currStep === 3" [@enterAnimation]></app-terminal>
+        <app-terminal *ngIf="currStep === 3" [@enterAnimation] [isFocussed]="isFocussed"
+          (cmdExecuted)="scrollToBottom()"></app-terminal>
       </div>
     </ng-scrollbar>
   </div>
 </div>
-
