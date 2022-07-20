@@ -59,6 +59,7 @@
   @media(max-width: 425px) {
     top: 5%;
     bottom: calc(2% + 38px);
+    padding: 5px;
   }
 
   .title {
@@ -71,9 +72,7 @@
     // height: 100%;
     height: calc(100% - 50px);
 
-    @media (max-width:425px) {
-
-    }
+    @media (max-width:425px) {}
   }
 
   ng-scrollbar {
