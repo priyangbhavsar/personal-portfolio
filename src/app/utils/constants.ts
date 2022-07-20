@@ -22,7 +22,7 @@ export const filesList = [
     name: 'leetcode',
     extension: '.pri',
     downloadable: false,
-    URL : 'https://leetcode.com/bhavsarpriyang9999/',
+    URL: 'https://leetcode.com/bhavsarpriyang9999/',
     canOpen: true,
     canShow: true
   }),
@@ -47,7 +47,7 @@ export const filesList = [
     name: 'lichess',
     extension: '.pri',
     downloadable: false,
-    URL : 'https://lichess.org/@/Priyangbhavsar',
+    URL: 'https://lichess.org/@/Priyangbhavsar',
     canOpen: true
   }),
   // new FileObject({
@@ -63,3 +63,33 @@ export const filesList = [
 export const cmdErrors = {
   fileNotExists: 'file does not exists',
 }
+
+
+export const technicalSkills = [
+  {
+    name: 'SQL Server',
+    skill: 4.5,
+    experience: 4.5
+  },
+  {
+    name: 'JAVA-Spring',
+    skill: 4,
+    experience: 1
+  },
+  {
+    name: '.NET Core',
+    skill: 3.5,
+    experience: 4
+  },
+  {
+    name: 'Angular',
+    skill: 3.5,
+    experience: 3
+  },
+  {
+    name: 'NodeJs/ExpressJs',
+    skill: 3,
+    experience: 3
+  },
+
+]

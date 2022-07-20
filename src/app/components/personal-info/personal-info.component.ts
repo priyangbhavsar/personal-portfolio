@@ -1,3 +1,4 @@
+import { technicalSkills } from './../../utils/constants';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit {
+
+  technicalSkills = technicalSkills
+
 
   constructor() { }
 

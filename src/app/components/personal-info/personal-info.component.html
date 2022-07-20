@@ -1,31 +1,66 @@
 <div class="title-container">
   <div class="title">
-    <h1 class="info">Hello I am Priyang</h1>
-    <h4>Software Engineer</h4>
-    <br />
-    <br />
-    <div>
-      I have worked on different projects under various technologies like :
-      Spring-MVC, dotnet MVC Core 3.0, Angular CLI 8, React, NodeJs and
-      ExpressJs
-      <br />Worked on Databases like : Microsoft SQL Server, MySQL and
-      Postgresql
-      <br /> Have a Good knowledge of Data Structures and Algorithm
-      <br />Passionate to explore New technologies in software development field
-
-      <!-- <br /><br />Competitive Programming Profiles:
-      <br />
-      <div class="images-container">
-        <a href="https://leetcode.com/bhavsarpriyang9999/" target="_blank"
-          ><img height="60px" src="../../../assets/images/leetcode.png" alt="leetcode"
-        /></a>
-        <a href="https://binarysearch.com/@/priyangbhavsar" target="_blank">
-          <img height="60px" src="../../../assets/images/binarysearch.webp"  alt="binary search"/>
-        </a>
-        <a href="https://www.codechef.com/users/priyang" target="_blank">
-          <img height="60px" src="../../../assets/images/codechef.png"  alt="codechef"/>
-        </a>
-      </div> -->
+    <div class="info">
+      <h1>Hello I am Priyang</h1>
+      <div>
+        I am a Software Engineer with around 2.5 years of experience. I have
+        worked on different projects under various technologies like:
+        Spring-MVC, dotnet MVC Core 3.0, Angular CLI 8, React, NodeJs and
+        ExpressJs Worked on Databases like: Microsoft SQL Server, MySQL and
+        Postgresql Passionate to explore New technologies in the software
+        development field
+      </div>
     </div>
+
+  </div>
+  <div class="technical-skills">
+    <div class="skill-title">
+      <h3>Technical Skills</h3>
+    </div>
+    <div class="skills">
+      <div class="skill-item skill-item-heading">
+        <div class="skill-item-title">
+          Name
+        </div>
+        <div class="skill-item-value">
+          Skill
+        </div>
+        <div class="experience-value">
+          Experience
+        </div>
+      </div>
+      <div class="skill-item-content">
+        <div class="skill-item" *ngFor="let skill of technicalSkills">
+          <div class="skill-item-title">{{ skill.name }}</div>
+          <div class="skill-item-value">
+            <span *ngFor="let number of [1, 2, 3, 4, 5]">
+              <mat-icon *ngIf="skill.skill - number === 0.5">star_half</mat-icon>
+              <mat-icon *ngIf="skill.skill - number !== 0.5 && skill.skill >= number">star</mat-icon>
+              <mat-icon *ngIf="skill.skill - number !== 0.5 && skill.skill < number">star_border</mat-icon>
+            </span>
+          </div>
+          <div class="experience-value">
+            <span *ngFor="let number of [1, 2, 3, 4, 5]">
+              <mat-icon *ngIf="skill.experience - number === 0.5">star_half</mat-icon>
+              <mat-icon *ngIf="skill.experience - number !== 0.5 && skill.experience >= number">star</mat-icon>
+              <mat-icon *ngIf="skill.experience - number !== 0.5 && skill.experience < number">star_border</mat-icon>
+            </span>
+          </div>
+      </div>
+      </div>
+    </div>
+    <!-- <br /><br />Competitive Programming Profiles:
+    <br />
+    <div class="images-container">
+      <a href="https://leetcode.com/bhavsarpriyang9999/" target="_blank"
+        ><img height="60px" src="../../../assets/images/leetcode.png" alt="leetcode"
+      /></a>
+      <a href="https://binarysearch.com/@/priyangbhavsar" target="_blank">
+        <img height="60px" src="../../../assets/images/binarysearch.webp"  alt="binary search"/>
+      </a>
+      <a href="https://www.codechef.com/users/priyang" target="_blank">
+        <img height="60px" src="../../../assets/images/codechef.png"  alt="codechef"/>
+      </a>
+    </div> -->
   </div>
 </div>
