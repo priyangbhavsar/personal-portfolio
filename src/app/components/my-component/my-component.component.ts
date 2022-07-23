@@ -100,8 +100,6 @@ export class MyComponentComponent implements OnInit, OnDestroy {
   }
 
   scrollToBottom() {
-    console.log('going to bottom')
-
     this.scrollbarRef.scrollTo({ bottom: 0, duration: 80 })
   }
 
