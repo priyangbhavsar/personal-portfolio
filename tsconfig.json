@@ -2,8 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "./personal-portfolio/",
+    "outDir": "./docs",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

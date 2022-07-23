@@ -17,6 +17,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { FrameComponent } from './components/frame/frame.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { FileSystemComponent } from './components/file-system/file-system.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     PersonalInfoComponent,
     TerminalComponent,
     FrameComponent,
-    SafePipe
+    SafePipe,
+    FileSystemComponent
   ],
   entryComponents: [
     FrameComponent

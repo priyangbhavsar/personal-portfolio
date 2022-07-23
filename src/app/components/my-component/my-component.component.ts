@@ -29,7 +29,7 @@ import { NgScrollbar } from 'ngx-scrollbar';
 export class MyComponentComponent implements OnInit, OnDestroy {
   prevBx = 0
   prevBy = 0
-  currStep = STEPPER.CONTACT
+  currStep = STEPPER.FILE_SYSTEM
   private observers: Subscription[] = []
   heading = HEADINGMAP[this.currStep]
   isFocussed = false
