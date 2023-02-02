@@ -79,6 +79,9 @@
     --scrollbar-color: rgb(187, 220, 162);
     /* scroll bars background color */
     --scrollbar-thumb-color: #4300ff;
+    @media (max-width:425px) {
+      --scrollbar-thumb-color: hsla(256, 100%, 50%, 0.252);
+    }
     /* scroll bar color */
     --scrollbar-thumb-hover-color: #8f99c4;
     /* scroll bar hover color */
