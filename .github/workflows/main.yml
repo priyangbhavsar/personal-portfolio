@@ -10,18 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.5.2
+    - uses: actions/checkout@v2.5.5
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2.4.2
+      uses: actions/setup-node@v2.5.1
       with:
-        node-version: '16'
+        node-version: '16.x'
 
     - name: Install Dependencies
       run: npm install
 
     - name: Build Angular App
       run: ng build
+
+    - name: Copy index.html to 404.html
+      run: cp docs/index.html docs/404.html
 
     - name: Deploy to Github Pages
       uses: peaceiris/actions-gh-pages@v3
