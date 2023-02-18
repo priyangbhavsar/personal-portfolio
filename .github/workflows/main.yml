@@ -24,7 +24,7 @@ jobs:
       run:  npm run build
 
     - name: Copy index.html to 404.html
-      run: echo ${{secrets}} & cp docs/index.html docs/404.html
+      run: echo ${{secrets.MY_GITHUB_TOKEN}} & cp docs/index.html docs/404.html
 
 
     - name: Deploy to Github Pages
