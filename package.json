@@ -33,7 +33,8 @@
     "ngx-scrollbar": "^10.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.5"
+    "zone.js": "~0.11.5",
+    "tsparticles": "^1.15.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~14.0.0",

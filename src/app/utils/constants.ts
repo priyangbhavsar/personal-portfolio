@@ -74,7 +74,7 @@ export const technicalSkills = [
   {
     name: 'JAVA-Spring',
     skill: 4,
-    experience: 1
+    experience: 4
   },
   {
     name: '.NET Core',
