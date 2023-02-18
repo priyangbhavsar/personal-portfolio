@@ -21,7 +21,7 @@ jobs:
       run: npm install
 
     - name: Build Angular App
-      run: npm build
+      run:  npm run build
 
     - name: Copy index.html to 404.html
       run: cp docs/index.html docs/404.html
