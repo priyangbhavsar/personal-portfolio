@@ -44,6 +44,7 @@
         <app-my-journey *ngIf="currStep === 2" [@enterAnimation]></app-my-journey>
         <app-terminal *ngIf="currStep === 3" [@enterAnimation] [isFocussed]="isFocussed"
           (cmdExecuted)="scrollToBottom()"></app-terminal>
+        <app-file-system *ngIf="currStep === 4"></app-file-system>
       </div>
     </ng-scrollbar>
   </div>

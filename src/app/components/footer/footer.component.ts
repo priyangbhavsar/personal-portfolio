@@ -1,6 +1,6 @@
 import { StepperService } from './../../utils/services/stepper.service';
 import { Component, OnInit } from '@angular/core';
-import { STEPPER } from 'src/app/utils/enumsGlobal';
+import { STEPPER } from '../../utils/enumsGlobal';
 
 @Component({
   selector: 'app-footer',

@@ -33,6 +33,7 @@ interface FileObjectInterface {
   downloadURL?: string
   canShow?: boolean
   canOpen?: boolean
+  iconUrl?: string
 }
 
 export class FileObject {
@@ -43,6 +44,7 @@ export class FileObject {
   downloadURL?: string
   canShow?: boolean
   canOpen?: boolean
+  iconUrl?: string
   constructor(value: FileObjectInterface) {
     this.name = value.name
     this.extension = value.extension
@@ -52,6 +54,7 @@ export class FileObject {
     this.downloadable = value.downloadable
     this.canOpen = value.canOpen
     this.canShow = value.canShow
+    this.iconUrl = value.iconUrl
 
   }
   toString(id: number | undefined = undefined) {

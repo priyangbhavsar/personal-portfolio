@@ -20,7 +20,7 @@
     // line-height: 15px;
     .info {
       height: 70vh;
-
+      line-height: 2.5;
       @media (max-width: 425px) {
         height: 80vh;
       }
@@ -30,6 +30,9 @@
       justify-content: center;
       display: flex;
       flex-direction: column;
+      .desc {
+        line-height: 1.5;
+      }
     }
 
 

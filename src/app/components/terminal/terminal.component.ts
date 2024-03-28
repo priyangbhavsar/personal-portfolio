@@ -3,9 +3,10 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import _ from 'lodash';
-import { basicCommand, FileObject, MyCommand } from 'src/app/utils/CommonModels';
-import { allCommands, cmdErrors, filesList } from 'src/app/utils/constants';
-import { CommonService } from 'src/app/utils/services/common.service';
+import { basicCommand, MyCommand } from '../../utils/CommonModels';
+import { allCommands, cmdErrors, filesList } from '../../utils/constants';
+import { CommonService } from '../../utils/services/common.service';
+
 import { FrameComponent } from '../frame/frame.component';
 
 @Component({

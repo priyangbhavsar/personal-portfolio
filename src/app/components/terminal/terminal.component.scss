@@ -22,22 +22,27 @@
       }
     }
   }
+
   .commands {
     &:first-child {
       margin-top: 30px;
     }
+
     .response {
       margin-left: 30px;
       color: white;
     }
+
     .display-none {
       display: none;
     }
+
     input {
       border: none;
       background: none;
       color: white;
       max-width: 300px;
+
       &:focus {
         border: none;
         background: none;
