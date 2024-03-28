@@ -1,15 +1,17 @@
 <div class="desktop">
-    <div class="file" *ngFor="let x of filesList" [matMenuTriggerFor]="menu"[matMenuTriggerData]="x">
+    <div class="file" *ngFor="let x of filesList" [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="x">
         <div class="icon">
-            <img [src]="images.fileIcon" class="file-icon">
+            <img [src]="domSanitizer.bypassSecurityTrustResourceUrl(x.iconUrl ?? images.fileIcon)" class="file-icon">
         </div>
         <div class="text">{{x.name}}{{x.extension}}</div>
     </div>
 
 
-    <mat-menu #menu="matMenu" class="mat-menu">
-        <button mat-menu-item class="menu-item">Open</button>
-        <button mat-menu-item class="menu-item">View</button>
-        <button mat-menu-item class="menu-item">Download</button>
+    <mat-menu #appMenu="matMenu" class="mat-menu" style="padding: 0;">
+      <ng-template matMenuContent let-name="name" let-extension="extension">
+        <button mat-menu-item class="menu-item" (click)="openInNewTab(name+extension, false)">Open {{name}}</button>
+        <button mat-menu-item class="menu-item"  (click)="showFile(name+extension)">View {{name}}</button>
+        <button mat-menu-item class="menu-item" (click)="openInNewTab(name+extension, true)">Download {{name}}</button>
+        </ng-template>
     </mat-menu>
 </div>

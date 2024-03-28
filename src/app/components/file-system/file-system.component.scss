@@ -15,26 +15,24 @@
 
         .icon {
             .file-icon {
-                width: 100px;
+                width: 86px;
+                color: white;
+                box-sizing: content-box;
             }
         }
+        .text {
+          padding-top: 10px;
+        }
 
-        
+
     }
 
 }
-.mat-menu, #matMenu {
-    padding: 0;
-}
 .menu-item {
-
     width: 100%;
-    background: #a0a0d0;
+    background: #d9d9e7;
     vertical-align: center;
     height: 41px;
     text-align: center;
-    /* padding: 1px 10px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }

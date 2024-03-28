@@ -9,7 +9,7 @@ export class StepperService {
 
   constructor() { }
 
-  currStep: BehaviorSubject<STEPPER> = new BehaviorSubject<STEPPER>(STEPPER.FILE_SYSTEM)
+  currStep: BehaviorSubject<STEPPER> = new BehaviorSubject<STEPPER>(STEPPER.PERSONAL_INFO)
 
   getCurrStep() {
     return this.currStep.asObservable();
