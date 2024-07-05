@@ -1,0 +1,96 @@
+.contact-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+   .form {
+    display: contents;
+    width: 100%;
+  }
+  .contact-form-field {
+    width: 100%;
+    min-width: 350px;
+    max-width: 90%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    .mat-form-field {
+      background: #29265e;
+      border-radius: 10px;
+      max-width: 500px;
+      .mat-form-field-wrapper {
+        width: 100%;
+        background-color: #fff; // White
+        color: #ffffff; // Black
+      }
+      .mat-form-field-label {
+        width: 100%;
+        color: #fff; // White
+      }
+      .mat-form-field-flex {
+        width: 100%;
+        input,
+        textarea {
+          color: #ede4e4 !important; // Black
+          &::placeholder {
+            color: white
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    background: #29265e;
+    color: #fff; // White
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1565c0; // Darker blue variant
+    }
+  }
+}
+::ng-deep  .mat-form-field-label {
+  /*change color of label*/
+  color: rgb(207, 201, 241) !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  color: rgb(220, 232, 220) !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+  color: rgb(220, 232, 220) !important;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: rgb(220, 232, 220) !important;
+  opacity:  0.5;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: rgb(220, 232, 220) !important;
+ opacity:  0.5;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: rgb(220, 232, 220) !important;
+  opacity:  0.5;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(220, 232, 220) !important;
+  opacity:  0.5;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(220, 232, 220) !important;
+  opacity:  0.5;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+  color: rgb(229, 220, 232) !important;
+  opacity:  0.5;
+}

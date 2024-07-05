@@ -1,0 +1,34 @@
+<div class="contact-container">
+    <form class="form" action="https://formsubmit.co/5a78cfad0c242c4e7ee7f8b5a58539d2" method="POST" id="form" name="form" (submit)="submitForm($event)"> 
+      <div class="contact-form-field">
+        <mat-form-field appearance="fill" [style.width.%]="100">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" required name="name" form="form" [(ngModel)]="contactFormData.name"
+          [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </div>
+      <div class="contact-form-field">
+        <mat-form-field appearance="fill" [style.width.%]="100">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter your email" required name="email" form="form" type="email"
+           [(ngModel)]="contactFormData.email" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </div>
+      <div class="contact-form-field">
+        <mat-form-field appearance="fill" [style.width.%]="100">
+          <mat-label>Subject</mat-label>
+          <input matInput placeholder="Enter subject" required form="form"  [(ngModel)]="contactFormData.subject"
+          [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </div>
+      <div class="contact-form-field">
+        <mat-form-field appearance="fill" [style.width.%]="100">
+          <mat-label>Message</mat-label>
+          <textarea matInput placeholder="Enter your message" required name="message" form="form"  [(ngModel)]="contactFormData.message"
+          [ngModelOptions]="{standalone: true}"></textarea>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit" form="form">Send</button>
+    </form>
+  </div>
+  

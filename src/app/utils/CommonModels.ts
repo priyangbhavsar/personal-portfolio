@@ -1,3 +1,5 @@
+import { STEPPER } from "./enumsGlobal";
+
 export class basicCommand {
   base: string = 'priyang@home:';
   directory: string;
@@ -34,6 +36,8 @@ interface FileObjectInterface {
   canShow?: boolean
   canOpen?: boolean
   iconUrl?: string
+  canView?: boolean 
+  step?: STEPPER
 }
 
 export class FileObject {
@@ -45,6 +49,8 @@ export class FileObject {
   canShow?: boolean
   canOpen?: boolean
   iconUrl?: string
+  canView?: boolean
+  step?: STEPPER
   constructor(value: FileObjectInterface) {
     this.name = value.name
     this.extension = value.extension
@@ -55,7 +61,8 @@ export class FileObject {
     this.canOpen = value.canOpen
     this.canShow = value.canShow
     this.iconUrl = value.iconUrl
-
+    this.canView = value.canView  
+    this.step = value.step
   }
   toString(id: number | undefined = undefined) {
     if (id) {

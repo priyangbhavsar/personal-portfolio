@@ -18,6 +18,7 @@ import { FrameComponent } from './components/frame/frame.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { FileSystemComponent } from './components/file-system/file-system.component';
+import { ContactMeComponent } from './components/contact-me/contact-me.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FileSystemComponent } from './components/file-system/file-system.compon
     TerminalComponent,
     FrameComponent,
     SafePipe,
-    FileSystemComponent
+    FileSystemComponent,
+    ContactMeComponent
   ],
   entryComponents: [
     FrameComponent
