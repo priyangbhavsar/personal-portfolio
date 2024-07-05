@@ -14,7 +14,7 @@ import { NgScrollbar } from 'ngx-scrollbar';
       'enterAnimation', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('1400ms', style({ opacity: 1 }))
+        animate('1400ms', style({ opacity: 0.75 }))
       ]),
       transition(':leave', [
         style({ opacity: 1, display: 'none' }),

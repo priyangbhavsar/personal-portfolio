@@ -7,11 +7,13 @@
     </div>
 
 
-    <mat-menu #appMenu="matMenu" class="mat-menu" style="padding: 0;">
-      <ng-template matMenuContent let-name="name" let-extension="extension">
+    <mat-menu #appMenu="matMenu" class="mat-menu" style="padding: 0;" [class]="'customize'">
+      <ng-template matMenuContent let-name="name" let-extension="extension" let-canView="canView" let-downloadable="downloadable">
         <button mat-menu-item class="menu-item" (click)="openInNewTab(name+extension, false)">Open {{name}}</button>
-        <button mat-menu-item class="menu-item"  (click)="showFile(name+extension)">View {{name}}</button>
-        <button mat-menu-item class="menu-item" (click)="openInNewTab(name+extension, true)">Download {{name}}</button>
+        <button mat-menu-item class="menu-item"  (click)="showFile(name+extension)"
+            *ngIf="canView">View {{name}}</button>
+        <button mat-menu-item class="menu-item" (click)="openInNewTab(name+extension, true)"
+            *ngIf="downloadable">Download {{name}}</button>
         </ng-template>
     </mat-menu>
 </div>
