@@ -4,7 +4,7 @@ export class basicCommand {
   base: string = 'priyang@home:';
   directory: string;
   cmd: string = '';
-  response: string = '';
+  response: any = '';
 
   constructor(directory: string = '$ ') {
     this.directory = directory
@@ -24,7 +24,7 @@ export class MyCommand {
   }
 
   toString() {
-    return `<div>Command : ${this.name}<br> Description : ${this.description}</div>`
+    return `<tr><td> ${this.name}</td>  <td> ${this.description} </td></tr>`
   }
 }
 interface FileObjectInterface {
@@ -36,60 +36,54 @@ interface FileObjectInterface {
   canShow?: boolean
   canOpen?: boolean
   iconUrl?: string
-  canView?: boolean 
+  canView?: boolean
   step?: STEPPER
 }
 
 export class FileObject {
   name: string
   extension: string
-  downloadable: boolean
+  downloadable: boolean = false
   URL: string
   downloadURL?: string
-  canShow?: boolean
-  canOpen?: boolean
+  canShow?: boolean = false
+  canOpen?: boolean = false
   iconUrl?: string
-  canView?: boolean
+  canView?: boolean = false
   step?: STEPPER
   constructor(value: FileObjectInterface) {
     this.name = value.name
     this.extension = value.extension
-    this.downloadable = value.downloadable
     this.URL = value.URL
     this.downloadURL = value.downloadURL
-    this.downloadable = value.downloadable
-    this.canOpen = value.canOpen
-    this.canShow = value.canShow
+    this.downloadable = value.downloadable ?? false
+    this.canOpen = value.canOpen ?? false
+    this.canShow = value.canShow ?? false
     this.iconUrl = value.iconUrl
-    this.canView = value.canView  
+    this.canView = value.canView ?? false
     this.step = value.step
   }
   toString(id: number | undefined = undefined) {
     if (id) {
       return `
-      <br> id: ${id}
-      <br>name : ${this.name}${this.extension}
-      <br> can open: ${this.canOpen}
-      <br> can show: ${this.canShow}
-      <br> can download: ${this.downloadable}`
+      <tr>
+      <td> ${id} </td>
+      <td> ${this.name}${this.extension}  </td>
+      <td> ${this.canOpen}  </td>
+      <td> ${this.canShow}  </td>
+      <td> ${this.downloadable}  </td>
+      </tr>
+      `
     }
-    return `
-    <br>name : ${this.name}${this.extension}
-    <br> can open: ${this.canOpen}
-    <br> can show: ${this.canShow}
-    <br> can download: ${this.downloadable}`
+    return `<tr>
+      <td> ${this.name}${this.extension}  </td>
+      <td> ${this.canOpen}  </td>
+      <td> ${this.canShow}  </td>
+      <td> ${this.downloadable}  </td>
+      </tr>`
   }
 
   getFullName(): string {
     return `${this.name}${this.extension}`
   }
-
-  // toStringWithId() {
-  //   return `
-  //   <br> id: ${id}
-  //   <br>name : ${this.name}${this.extension}
-  //   <br> canOpen ${this.canOpen}
-  //   <br> canShow: ${this.canShow}
-  //   <br> canDownload: ${this.downloadable}`
-  // }
 }

@@ -4,6 +4,7 @@ export enum STEPPER {
   TERMINAL = 3,
   FILE_SYSTEM = 4,
   CONTACT = 5,
+  TYPING_TEST = 6,
   NOTHING = -1
 }
 
@@ -14,5 +15,6 @@ export const HEADINGMAP = {
   [STEPPER.TERMINAL] : 'Terminal',
   [STEPPER.FILE_SYSTEM]: 'File Explorer',
   [STEPPER.CONTACT]: 'Contact Me',
-  [STEPPER.NOTHING] : '',
+  [STEPPER.TYPING_TEST]: 'Typing Test',
+  [STEPPER.NOTHING] : ''
 }

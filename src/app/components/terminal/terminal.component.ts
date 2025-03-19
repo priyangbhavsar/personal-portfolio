@@ -8,6 +8,7 @@ import { allCommands, cmdErrors, filesList } from '../../utils/constants';
 import { CommonService } from '../../utils/services/common.service';
 
 import { FrameComponent } from '../frame/frame.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-terminal',
@@ -38,7 +39,9 @@ export class TerminalComponent implements OnInit {
   @Output('cmdExecuted')
   emitter = new EventEmitter<boolean>()
 
-  constructor(private dialog: MatDialog, private commonService: CommonService) { }
+  constructor(private dialog: MatDialog, private commonService: CommonService,
+    private sanitizer: DomSanitizer
+  ) { }
 
 
   ngOnInit(): void {
@@ -70,7 +73,7 @@ export class TerminalComponent implements OnInit {
     // }
     // // this.currentCommand.cmd = inp.value
 
-    this.currentCommand.response = this.renderCommand();
+    this.currentCommand.response = this.sanitizer.bypassSecurityTrustHtml(this.renderCommand());
     const newCmd: basicCommand = new basicCommand();
     this.currentCommand = newCmd
     this.commands.push(newCmd)
@@ -96,15 +99,31 @@ export class TerminalComponent implements OnInit {
     let ret = ''
     switch (comm.name) {
       case 'help':
+        ret += `<table border="1">
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>`
         allCommands.forEach(command => {
-          ret += command.toString() + '<br>'
+
+          ret += command.toString()
         })
+        ret += '</table>'
         break
       case 'ls':
-        ret += 'this is the list of all files : <br>'
+        console.log("executing ls ..")
+        ret += `this is the list of all files : <br> <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Openable</th>
+            <th>Viewable</th>
+            <th>Downloadable</th>
+          </tr>`
         filesList.forEach(file => {
-          ret += file.toString() + '<br>'
+          ret += file.toString()
         })
+        ret += `</table>`
+        console.log("ret .." + ret)
         break
       case 'cls':
         this.commands = []

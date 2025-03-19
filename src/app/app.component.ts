@@ -7,10 +7,12 @@ import {environment} from "../environments/environment";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio-client';
+  title = 'Priyang Bhavsar | Software Engineer & Developer';
+  analyticsAllowed: boolean = false
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    this.analyticsAllowed = environment.enableCloudflare
     if (environment.enableTsParticle) {
 
       tsParticles.load('id', {

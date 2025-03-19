@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  enableTsParticle: false
+  enableTsParticle: false,
+  enableCloudflare: false
 };
 
 /*

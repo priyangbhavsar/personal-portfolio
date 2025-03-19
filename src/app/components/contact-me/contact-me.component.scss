@@ -3,14 +3,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding-top: 10px;
+  @media(min-width: 768) {
+    padding: 20px;
+  }
    .form {
     display: contents;
     width: 100%;
   }
   .contact-form-field {
     width: 100%;
-    min-width: 350px;
+    // min-width: 350px;
     max-width: 90%;
     margin-bottom: 20px;
     display: flex;
@@ -62,7 +65,7 @@
  ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
   color: rgb(220, 232, 220) !important;
-} 
+}
 
 ::ng-deep.mat-form-field-ripple {
  /*change color of underline when focused*/

@@ -1,0 +1,30 @@
+<div class="typing-container">
+
+  <p class="test-text" *ngIf="!isLoading">
+
+    <span *ngFor="let char of testText.split(' '); let i = index"
+          [ngClass]="getWordClass(i)">
+      {{ char }}
+    </span>
+  </p>
+
+  <p *ngIf="isLoading"></p>
+
+  <textarea
+    [(ngModel)]="userInput"
+    (input)="onTyping()"
+    [disabled]="!isTestActive || isLoading"
+    placeholder="Start typing here..."
+    rows="4"
+    (paste)="(false)">
+  </textarea>
+
+  <div class="stats">
+    <p>Time: {{ timeLeft }}s</p>
+    <p>WPM: {{ wordsPerMinute }}</p>
+    <p>Accuracy: {{ accuracy }}%</p>
+  </div>
+
+  <button (click)="startTest()" [disabled]="isTestActive">Start Test</button>
+  <button (click)="resetTest()">Reset</button>
+</div>
