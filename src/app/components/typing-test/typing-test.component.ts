@@ -23,7 +23,7 @@ export class TypingTestComponent implements OnInit {
     this.isLoading = true;
     this.isCompleted = false; // Reset win condition
     try {
-      const response = await fetch('http://metaphorpsum.com/paragraphs/1/4');
+      const response = await fetch('https://cors-anywhere.herokuapp.com/http://metaphorpsum.com/paragraphs/1/4');
       this.testText = await response.text();
     } catch (error) {
       console.error("Error fetching test text:", error);
